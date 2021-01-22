@@ -70,3 +70,16 @@ let tasks = [
        topic: 'Objects'   
    }
 ]
+// Loop that adding the properties "totalTime" & "tasksFinishedPercent" to each object.
+for (let obj of tasks) {
+   obj.totalTime = totalTime(obj['startedAt'],obj['finishedAt']);
+   obj.tasksFinishedPercent = tasksFinishedPercent(obj['tasksGiven'],obj['tasksFinished']);
+}
+// Function that calculate the difference between finished time to started time.
+function totalTime(start, end) {
+
+}
+// Function that calculate the percent of tasks finished, floored.
+function tasksFinishedPercent(total, finished) {
+
+}
