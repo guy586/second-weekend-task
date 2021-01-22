@@ -88,6 +88,34 @@ function tasksFinishedPercent(total, finished) {
 }
 // Start of table (below).
 document.write("<table>");
+// Head of the table.
+document.write("<tr>");
+for (let prop in tasks[0]) {
+   switch (prop) {
+      case 'startedAt':
+         document.write("<th>Started At</th>");
+         break;
+      case 'finishedAt':
+         document.write("<th>Finished At</th>");
+         break;
+      case 'tasksGiven':
+         document.write("<th>Tasks Given</th>");
+         break;
+      case 'tasksFinished':
+         document.write("<th>Tasks Finished</th>");
+         break;    
+      case 'topic':
+         document.write("<th>Topic</th>");
+         break;
+      case 'totalTime':
+         document.write("<th>Total Time Spent</th>");
+         break;
+      case 'tasksFinishedPercent':
+         document.write("<th>Tasks Finished %</th>");
+         break; 
+   }
+}
+document.write("</tr>");
 
 document.write("</table>");
 // End of table (above).
