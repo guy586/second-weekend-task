@@ -86,3 +86,8 @@ function totalTime(start, end) {
 function tasksFinishedPercent(total, finished) {
    return Math.floor(finished/(total/100));
 }
+// Start of table (below).
+document.write("<table>");
+
+document.write("</table>");
+// End of table (above).
