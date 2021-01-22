@@ -77,9 +77,12 @@ for (let obj of tasks) {
 }
 // Function that calculate the difference between finished time to started time.
 function totalTime(start, end) {
-   
+   let startTime = start.getHours()*60 + start.getMinutes();
+   let endTime = end.getHours()*60 + end.getMinutes();
+   let totalTime = (endTime - startTime)/60;
+   return totalTime;
 }
 // Function that calculate the percent of tasks finished, floored.
 function tasksFinishedPercent(total, finished) {
-    return Math.floor(finished/(total/100));
+   return Math.floor(finished/(total/100));
 }
