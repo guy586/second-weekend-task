@@ -1,0 +1,88 @@
+table {
+  text-align: center;
+  color: floralwhite;
+}
+
+th {
+  background-color: dimgrey;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+td {
+  background-color: black;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.fast {
+  animation-name: fast-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fast-color {
+  50% {
+    background-color: #80d4ff;
+  }
+}
+
+.mid {
+  animation-name: mid-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes mid-color {
+  50% {
+    background-color: #0066ff;
+  }
+}
+
+.low {
+  animation-name: low-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes low-color {
+  50% {
+    background-color: #0000b3;
+  }
+}
+
+.good {
+  animation-name: good-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes good-color {
+  50% {
+    background-color: #33cc33;
+  }
+}
+
+.avg {
+  animation-name: avg-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes avg-color {
+  50% {
+    background-color: #ff9900;
+  }
+}
+
+.bad {
+  animation-name: bad-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bad-color {
+  50% {
+    background-color: #e60000;
+  }
+}
