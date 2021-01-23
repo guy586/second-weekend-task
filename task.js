@@ -86,7 +86,7 @@ function totalTime(start, end) {
 function tasksFinishedPercent(total, finished) {
    return Math.floor(finished/(total/100));
 }
-// Start of table (below).
+// Start of table.
 document.write("<table>");
 // Head of the table.
 document.write("<tr>");
@@ -111,8 +111,7 @@ for (let prop in tasks[0]) {
          document.write("<th>Total Time Spent</th>");
          break;
       case 'tasksFinishedPercent':
-         document.write("<th>Tasks Finished %</th>");
-         break; 
+         document.write("<th>Tasks Finished %</th>"); 
    }
 }
 document.write("</tr>");
@@ -148,23 +147,21 @@ for (let obj of tasks) {
             if (obj[prop] <= 4) {
                document.write(`<td class="fast">${obj[prop]}</td>`);    
             } else if (4 < obj[prop] && obj[prop] <= 6) {
-                document.write(`<td class="mid">${obj[prop]}</td>`);
+               document.write(`<td class="mid">${obj[prop]}</td>`);
             } else if (6 < obj[prop]) {
-                document.write(`<td class="low">${obj[prop]}</td>`);
+               document.write(`<td class="low">${obj[prop]}</td>`);
             }
             break;
          case 'tasksFinishedPercent':
             if (obj[prop] <= 50) {
                document.write(`<td class="bad">${obj[prop]}%</td>`);    
             } else if (50 < obj[prop] && obj[prop] <= 75) {
-                document.write(`<td class="avg">${obj[prop]}%</td>`);
+               document.write(`<td class="avg">${obj[prop]}%</td>`);
             } else if (75 < obj[prop]) {
-                document.write(`<td class="good">${obj[prop]}%</td>`);
+               document.write(`<td class="good">${obj[prop]}%</td>`);
             }
-            break;
       } 
    }
    document.write("</tr>");
 }
 document.write("</table>");
-// End of table (above).
