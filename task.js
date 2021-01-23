@@ -126,40 +126,40 @@ for (let obj of tasks) {
             if (min === 0) {
                min = "00";
             }
-            document.write(`<th>${obj[prop].getHours()}:${min}</th>`);
+            document.write(`<td>${obj[prop].getHours()}:${min}</td>`);
             break;
          case 'finishedAt':
             let minute = obj[prop].getMinutes();
             if (minute === 0) {
                minute = "00";
             }
-            document.write(`<th>${obj[prop].getHours()}:${minute}</th>`);
+            document.write(`<td>${obj[prop].getHours()}:${minute}</td>`);
             break;
          case 'tasksGiven':
-            document.write(`<th>${obj[prop]}</th>`);
+            document.write(`<td>${obj[prop]}</td>`);
             break;
          case 'tasksFinished':
-            document.write(`<th>${obj[prop]}</th>`);
+            document.write(`<td>${obj[prop]}</td>`);
             break;    
          case 'topic':
-            document.write(`<th>${obj[prop]}</th>`);
+            document.write(`<td>${obj[prop]}</td>`);
             break;
          case 'totalTime':
             if (obj[prop] <= 4) {
-               document.write(`<th class="fast">${obj[prop]}</th>`);    
+               document.write(`<td class="fast">${obj[prop]}</td>`);    
             } else if (4 < obj[prop] && obj[prop] <= 6) {
-                document.write(`<th class="mid">${obj[prop]}</th>`);
+                document.write(`<td class="mid">${obj[prop]}</td>`);
             } else if (6 < obj[prop]) {
-                document.write(`<th class="low">${obj[prop]}</th>`);
+                document.write(`<td class="low">${obj[prop]}</td>`);
             }
             break;
          case 'tasksFinishedPercent':
             if (obj[prop] <= 50) {
-               document.write(`<th class="bad">${obj[prop]}%</th>`);    
+               document.write(`<td class="bad">${obj[prop]}%</td>`);    
             } else if (50 < obj[prop] && obj[prop] <= 75) {
-                document.write(`<th class="avg">${obj[prop]}%</th>`);
+                document.write(`<td class="avg">${obj[prop]}%</td>`);
             } else if (75 < obj[prop]) {
-                document.write(`<th class="good">${obj[prop]}%</th>`);
+                document.write(`<td class="good">${obj[prop]}%</td>`);
             }
             break;
       } 
