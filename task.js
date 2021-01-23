@@ -116,6 +116,55 @@ for (let prop in tasks[0]) {
    }
 }
 document.write("</tr>");
-
+// Table content.
+for (let obj of tasks) {
+   document.write("<tr>");
+   for (let prop in obj) {
+      switch (prop) {
+         case 'startedAt':
+            let min = obj[prop].getMinutes();
+            if (min === 0) {
+               min = "00";
+            }
+            document.write(`<th>${obj[prop].getHours()}:${min}</th>`);
+            break;
+         case 'finishedAt':
+            let minute = obj[prop].getMinutes();
+            if (minute === 0) {
+               minute = "00";
+            }
+            document.write(`<th>${obj[prop].getHours()}:${minute}</th>`);
+            break;
+         case 'tasksGiven':
+            document.write(`<th>${obj[prop]}</th>`);
+            break;
+         case 'tasksFinished':
+            document.write(`<th>${obj[prop]}</th>`);
+            break;    
+         case 'topic':
+            document.write(`<th>${obj[prop]}</th>`);
+            break;
+         case 'totalTime':
+            if (obj[prop] <= 4) {
+               document.write(`<th class="fast">${obj[prop]}</th>`);    
+            } else if (4 < obj[prop] && obj[prop] <= 6) {
+                document.write(`<th class="mid">${obj[prop]}</th>`);
+            } else if (6 < obj[prop]) {
+                document.write(`<th class="low">${obj[prop]}</th>`);
+            }
+            break;
+         case 'tasksFinishedPercent':
+            if (obj[prop] <= 50) {
+               document.write(`<th class="bad">${obj[prop]}%</th>`);    
+            } else if (50 < obj[prop] && obj[prop] <= 75) {
+                document.write(`<th class="avg">${obj[prop]}%</th>`);
+            } else if (75 < obj[prop]) {
+                document.write(`<th class="good">${obj[prop]}%</th>`);
+            }
+            break;
+      } 
+   }
+   document.write("</tr>");
+}
 document.write("</table>");
 // End of table (above).
