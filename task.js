@@ -87,81 +87,93 @@ function tasksFinishedPercent(total, finished) {
    return Math.floor(finished/(total/100));
 }
 // Start of table.
-document.write("<table>");
+const body = document.querySelector('body');
+const tasksTable = document.createElement('table');
 // Head of the table.
-document.write("<tr>");
+const tableHeadRow = document.createElement('tr');
 for (let prop in tasks[0]) {
+   const headline = document.createElement('th');
    switch (prop) {
       case 'startedAt':
-         document.write("<th>Started At</th>");
+         headline.innerText = 'Started At';
          break;
       case 'finishedAt':
-         document.write("<th>Finished At</th>");
+         headline.innerText = 'Finished At';
          break;
       case 'tasksGiven':
-         document.write("<th>Tasks Given</th>");
+         headline.innerText = 'Tasks Given';
          break;
       case 'tasksFinished':
-         document.write("<th>Tasks Finished</th>");
+         headline.innerText = 'Tasks Finished';
          break;    
       case 'topic':
-         document.write("<th>Topic</th>");
+         headline.innerText = 'Topic';
          break;
       case 'totalTime':
-         document.write("<th>Total Time Spent</th>");
+         headline.innerText = 'Total Time Spent';
          break;
       case 'tasksFinishedPercent':
-         document.write("<th>Tasks Finished %</th>"); 
+         headline.innerText = 'Tasks Finished %';
    }
+   tableHeadRow.appendChild(headline);
 }
-document.write("</tr>");
+tasksTable.appendChild(tableHeadRow);
+
 // Table content.
 for (let obj of tasks) {
-   document.write("<tr>");
+   const tableRow = document.createElement('tr');
    for (let prop in obj) {
+      const td = document.createElement('td');
       switch (prop) {
          case 'startedAt':
             let min = obj[prop].getMinutes();
             if (min === 0) {
                min = "00";
             }
-            document.write(`<td>${obj[prop].getHours()}:${min}</td>`);
+            td.append(obj[prop].getHours(),':',min);
             break;
          case 'finishedAt':
             let minute = obj[prop].getMinutes();
             if (minute === 0) {
                minute = "00";
             }
-            document.write(`<td>${obj[prop].getHours()}:${minute}</td>`);
+            td.append(obj[prop].getHours(),':',minute);
             break;
          case 'tasksGiven':
-            document.write(`<td>${obj[prop]}</td>`);
+            td.append(obj[prop]);
             break;
          case 'tasksFinished':
-            document.write(`<td>${obj[prop]}</td>`);
+            td.append(obj[prop]);
             break;    
          case 'topic':
-            document.write(`<td>${obj[prop]}</td>`);
+            td.append(obj[prop]);
             break;
          case 'totalTime':
             if (obj[prop] <= 4) {
-               document.write(`<td class="fast">${obj[prop]}</td>`);    
+               td.setAttribute('class', 'fast');
+               td.append(obj[prop]);    
             } else if (4 < obj[prop] && obj[prop] <= 6) {
-               document.write(`<td class="mid">${obj[prop]}</td>`);
+               td.setAttribute('class', 'mid');
+               td.append(obj[prop]);
             } else if (6 < obj[prop]) {
-               document.write(`<td class="low">${obj[prop]}</td>`);
+               td.setAttribute('class', 'low');
+               td.append(obj[prop]);
             }
             break;
          case 'tasksFinishedPercent':
             if (obj[prop] <= 50) {
-               document.write(`<td class="bad">${obj[prop]}%</td>`);    
+               td.setAttribute('class', 'bad');
+               td.append(obj[prop]);   
             } else if (50 < obj[prop] && obj[prop] <= 75) {
-               document.write(`<td class="avg">${obj[prop]}%</td>`);
+               td.setAttribute('class', 'avg');
+               td.append(obj[prop]);
             } else if (75 < obj[prop]) {
-               document.write(`<td class="good">${obj[prop]}%</td>`);
+               td.setAttribute('class', 'good');
+               td.append(obj[prop]);
             }
-      } 
+      }
+      tableRow.appendChild(td); 
    }
-   document.write("</tr>");
+   tasksTable.appendChild(tableRow);
 }
-document.write("</table>");
+body.appendChild(tasksTable);
